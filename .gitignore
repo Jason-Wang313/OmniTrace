@@ -1,0 +1,7 @@
+target/
+build/
+**/*.dll
+**/*.exe
+**/*.obj
+__pycache__/
+.vscode/

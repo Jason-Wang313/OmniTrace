@@ -1,0 +1,21 @@
+# Rust
+target/
+**/*.rs.bk
+
+# C++
+build/
+*.dll
+*.lib
+*.exe
+*.obj
+*.pdb
+CMakeCache.txt
+CMakeFiles/
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
