@@ -45,3 +45,74 @@ omnitrace/
 │   └── Cargo.toml      # Rust dependency management
 └── python_agent/       # The AI optimization logic
     └── agent.py        # Self-optimizing feedback loop script
+
+```
+
+---
+
+## 🚀 Usage
+
+### Prerequisites
+
+* **Rust Toolchain:** `cargo` (for the CLI)
+* **C++ Compiler:** `cmake`, `g++` or `clang++` (supporting C++20)
+* **Python:** Python 3.10+ (for the agent)
+
+### Quick Start
+
+1. **Build the Simulator:**
+Compile the C++ core and Rust bindings in release mode.
+```bash
+cd rust_tooling
+cargo build --release
+
+```
+
+
+2. **Run the Test Suite:**
+Verify the physics engine against known baselines.
+```bash
+cargo test
+
+```
+
+
+3. **Launch the AI Agent:**
+Run the self-optimizing feedback loop to demonstrate automatic conflict resolution.
+```bash
+cd ..
+python python_agent/agent.py
+
+```
+
+
+
+---
+
+## 🧩 Technical Details
+
+### Shared Memory Simulation
+
+The `SharedMemory` class in the C++ core simulates the 32-bank architecture of modern GPUs. It detects when multiple threads within a warp attempt to access different addresses mapping to the same bank, calculating the resulting serialization penalty.
+
+### Warp Physics
+
+The `WarpState` struct maintains the program counter (PC), a simulated register file (32 threads × 64 registers), and an active mask to accurately model divergent execution paths.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please focus on:
+
+* **Tensor Core Modeling:** Enhancing the `simulate_mma_sync` logic.
+* **Instruction Set:** Expanding the parser to support more PTX instructions.
+* **Visualizations:** Improving the reporting of the Python agent.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](https://www.google.com/search?q=LICENSE) file for details.
+
+```
+
+```
